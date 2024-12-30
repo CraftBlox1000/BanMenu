@@ -387,7 +387,7 @@ local function WSYEB_fake_script() -- BanMenu.BanSystem
 	
 	
 	local function kickPlayer(target)
-		local crashmessage = ":target " .. target.Name .. " | :free " .. target.Name .. " | :re " .. target.Name .. " | :runc sigma | :chatnotifyc all 244 244 244 " .. target.Name .. " has been banned."
+		local crashmessage = ":target " .. target.Name .. " | :free " .. target.Name .. " | :re " .. target.Name .. " | :npm target You are banned from this server - Banned by LEON AND ERROR  | :runc sigma | :chatnotifyc all 244 244 244 " .. target.Name .. " has been banned."
 		cmd(crashmessage)	
 	end
 	
