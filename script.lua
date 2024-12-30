@@ -47,7 +47,6 @@ BanMenu.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BanMenu.BorderSizePixel = 0
 BanMenu.Position = UDim2.new(0.191344157, 0, 0.0366129428, 0)
 BanMenu.Size = UDim2.new(0, 629, 0, 495)
-BanMenu.Visible = false
 
 TextLabel.Parent = BanMenu
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -246,6 +245,7 @@ Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_3.BorderSizePixel = 0
 Frame_3.Position = UDim2.new(-0.000678844401, 0, -0.000561961555, 0)
 Frame_3.Size = UDim2.new(1, 0, 1, 0)
+Frame_3.Visible = false
 
 TextLabel_2.Parent = Frame_3
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -308,7 +308,7 @@ UICorner_6.Parent = TextButton
 
 -- Scripts:
 
-local function EMLN_fake_script() -- BanMenu.UIDrag 
+local function RUPT_fake_script() -- BanMenu.UIDrag 
 	local script = Instance.new('LocalScript', BanMenu)
 
 	-- Made by Real_IceyDev (@lceyDex) --
@@ -349,8 +349,8 @@ local function EMLN_fake_script() -- BanMenu.UIDrag
 		end
 	end)
 end
-coroutine.wrap(EMLN_fake_script)()
-local function EFJAUIM_fake_script() -- BanMenu.BanSystem 
+coroutine.wrap(RUPT_fake_script)()
+local function SDTYNVT_fake_script() -- BanMenu.BanSystem 
 	local script = Instance.new('LocalScript', BanMenu)
 
 	
@@ -520,8 +520,8 @@ local function EFJAUIM_fake_script() -- BanMenu.BanSystem
 		UpdateBanList(playersInGame, false)
 	end
 end
-coroutine.wrap(EFJAUIM_fake_script)()
-local function DLMLEO_fake_script() -- TextButton.LocalScript 
+coroutine.wrap(SDTYNVT_fake_script)()
+local function BCVDZF_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	
@@ -539,4 +539,4 @@ local function DLMLEO_fake_script() -- TextButton.LocalScript
 		end
 	end)
 end
-coroutine.wrap(DLMLEO_fake_script)()
+coroutine.wrap(BCVDZF_fake_script)()
