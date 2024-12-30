@@ -1,4 +1,3 @@
-
 -- Gui to Lua
 -- Version: 3.2
 
@@ -38,8 +37,6 @@ local WhiteList = {4729833135, 7399739284, 1587517343}
 if not table.find(WhiteList, game.Players.LocalPlayer.UserId) then
 	return
 end
-
-
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
@@ -285,7 +282,7 @@ UICorner_6.Parent = TextButton
 
 -- Scripts:
 
-local function TQXZP_fake_script() -- BanMenu.UIDrag 
+local function CBTFVDP_fake_script() -- BanMenu.UIDrag 
 	local script = Instance.new('LocalScript', BanMenu)
 
 	-- Made by Real_IceyDev (@lceyDex) --
@@ -326,8 +323,8 @@ local function TQXZP_fake_script() -- BanMenu.UIDrag
 		end
 	end)
 end
-coroutine.wrap(TQXZP_fake_script)()
-local function YKED_fake_script() -- BanMenu.BanSystem 
+coroutine.wrap(CBTFVDP_fake_script)()
+local function WSYEB_fake_script() -- BanMenu.BanSystem 
 	local script = Instance.new('LocalScript', BanMenu)
 
 	
@@ -453,9 +450,9 @@ local function YKED_fake_script() -- BanMenu.BanSystem
 	Players.PlayerAdded:Connect(function(player)
 		local banned = CheckIfPlayerIsBanned(player)
 		if banned then
-			player.CharacterAdded:Connect(function()
+			player.CharacterAdded:Wait()
 			kickPlayer(player)
-			end)
+			
 		else
 			UpdateBanList(player, false)
 		end
@@ -470,8 +467,8 @@ local function YKED_fake_script() -- BanMenu.BanSystem
 		UpdateBanList(playersInGame, false)
 	end
 end
-coroutine.wrap(YKED_fake_script)()
-local function KMROY_fake_script() -- TextButton.LocalScript 
+coroutine.wrap(WSYEB_fake_script)()
+local function QIEL_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	
@@ -489,4 +486,4 @@ local function KMROY_fake_script() -- TextButton.LocalScript
 		end
 	end)
 end
-coroutine.wrap(KMROY_fake_script)()
+coroutine.wrap(QIEL_fake_script)()
