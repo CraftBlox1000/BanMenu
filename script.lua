@@ -16,6 +16,9 @@ local UIGridLayout_2 = Instance.new("UIGridLayout")
 local CloseButton = Instance.new("TextButton")
 local SwitchToBan = Instance.new("TextButton")
 local SwitchToUnban = Instance.new("TextButton")
+local SwitchToWarn = Instance.new("TextButton")
+local Warnlist = Instance.new("ScrollingFrame")
+local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Template = Instance.new("Frame")
 local CharPhoto = Instance.new("ImageLabel")
 local UICorner_2 = Instance.new("UICorner")
@@ -32,14 +35,9 @@ local UICorner_5 = Instance.new("UICorner")
 local TextButton = Instance.new("TextButton")
 local UICorner_6 = Instance.new("UICorner")
 
-local WhiteList = {4729833135, 7399739284, 1587517343}
-
-if not table.find(WhiteList, game.Players.LocalPlayer.UserId) then
-	return
-end
 --Properties:
 
-ScreenGui.Parent = game.CoreGui
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 BanMenu.Name = "BanMenu"
@@ -141,7 +139,7 @@ SwitchToUnban.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SwitchToUnban.BackgroundTransparency = 1.000
 SwitchToUnban.BorderColor3 = Color3.fromRGB(0, 0, 0)
 SwitchToUnban.BorderSizePixel = 0
-SwitchToUnban.Position = UDim2.new(0.560002625, 0, 0.131255269, 0)
+SwitchToUnban.Position = UDim2.new(0.350145698, 0, 0.131255269, 0)
 SwitchToUnban.Size = UDim2.new(0, 206, 0, 49)
 SwitchToUnban.Font = Enum.Font.SourceSans
 SwitchToUnban.Text = "UNBAN"
@@ -149,6 +147,34 @@ SwitchToUnban.TextColor3 = Color3.fromRGB(170, 0, 0)
 SwitchToUnban.TextScaled = true
 SwitchToUnban.TextSize = 14.000
 SwitchToUnban.TextWrapped = true
+
+SwitchToWarn.Name = "SwitchToWarn"
+SwitchToWarn.Parent = BanMenu
+SwitchToWarn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SwitchToWarn.BackgroundTransparency = 1.000
+SwitchToWarn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SwitchToWarn.BorderSizePixel = 0
+SwitchToWarn.Position = UDim2.new(0.620415986, 0, 0.131255269, 0)
+SwitchToWarn.Size = UDim2.new(0, 206, 0, 49)
+SwitchToWarn.Font = Enum.Font.SourceSans
+SwitchToWarn.Text = "WARN"
+SwitchToWarn.TextColor3 = Color3.fromRGB(170, 0, 0)
+SwitchToWarn.TextScaled = true
+SwitchToWarn.TextSize = 14.000
+SwitchToWarn.TextWrapped = true
+
+Warnlist.Name = "Warnlist"
+Warnlist.Parent = BanMenu
+Warnlist.Active = true
+Warnlist.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+Warnlist.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Warnlist.BorderSizePixel = 0
+Warnlist.Position = UDim2.new(0.0384529717, 0, 0.321829259, 0)
+Warnlist.Size = UDim2.new(0, 579, 0, 316)
+
+UIGridLayout_3.Parent = Warnlist
+UIGridLayout_3.CellPadding = UDim2.new(0, 9, 0, 9)
+UIGridLayout_3.CellSize = UDim2.new(0, 568, 0, 67)
 
 Template.Name = "Template"
 Template.Parent = BanMenu
@@ -218,7 +244,7 @@ Frame_3.Parent = ScreenGui
 Frame_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_3.BorderSizePixel = 0
-Frame_3.Position = UDim2.new(0, 0, -0.000521337788, 0)
+Frame_3.Position = UDim2.new(-0.000678844401, 0, -0.000561961555, 0)
 Frame_3.Size = UDim2.new(1, 0, 1, 0)
 
 TextLabel_2.Parent = Frame_3
@@ -282,7 +308,7 @@ UICorner_6.Parent = TextButton
 
 -- Scripts:
 
-local function CBTFVDP_fake_script() -- BanMenu.UIDrag 
+local function EMLN_fake_script() -- BanMenu.UIDrag 
 	local script = Instance.new('LocalScript', BanMenu)
 
 	-- Made by Real_IceyDev (@lceyDex) --
@@ -323,8 +349,8 @@ local function CBTFVDP_fake_script() -- BanMenu.UIDrag
 		end
 	end)
 end
-coroutine.wrap(CBTFVDP_fake_script)()
-local function WSYEB_fake_script() -- BanMenu.BanSystem 
+coroutine.wrap(EMLN_fake_script)()
+local function EFJAUIM_fake_script() -- BanMenu.BanSystem 
 	local script = Instance.new('LocalScript', BanMenu)
 
 	
@@ -387,7 +413,7 @@ local function WSYEB_fake_script() -- BanMenu.BanSystem
 	
 	
 	local function kickPlayer(target)
-		local crashmessage = ":target " .. target.Name .. " | :free " .. target.Name .. " | :re " .. target.Name .. " | :npm target You are banned from this server - Banned by LEON AND ERROR  | :runc sigma | :chatnotifyc all 244 244 244 " .. target.Name .. " has been banned."
+		local crashmessage = ":target " .. target.Name .. " | :free " .. target.Name .. " | :re " .. target.Name .. " | :runc sigma | :chatnotifyc all 244 244 244 " .. target.Name .. " has been banned."
 		cmd(crashmessage)	
 	end
 	
@@ -406,6 +432,11 @@ local function WSYEB_fake_script() -- BanMenu.BanSystem
 			return false
 		end
 	end
+	
+	local function WarnPlayer(player)
+		local cmd = ":re "..player.Name.." | :npm "..player.Name.." Hello there "..player.Name.." You have been warned. This is yout first and final warning. If you do anything wrong again, you will get serverbanned. Thank you for your cooperation."
+	end
+	
 	local function UpdateBanList(player:Player, removed)
 		if not removed and Players.LocalPlayer.Name ~= player.Name and not banlist:FindFirstChild(player.Name) then
 			local userid = player.UserId
@@ -416,6 +447,7 @@ local function WSYEB_fake_script() -- BanMenu.BanSystem
 			local banButton = template.BanButton
 			local displayname = usernameText.Parent.DisplayName
 			image.Image = photo
+			
 			if player.DisplayName then
 				displayname.Text = player.DisplayName
 				usernameText.Text = "@"..player.Name
@@ -423,6 +455,27 @@ local function WSYEB_fake_script() -- BanMenu.BanSystem
 				displayname.Text = player.Name
 				usernameText.Text = "@"..player.Name
 			end
+			
+			local userid = player.UserId
+			local photo = Players:GetUserThumbnailAsync(userid, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size60x60)
+			local template2 = script.Parent.Template:Clone()
+			local image2 = template2.CharPhoto
+			local usernameText = template2.Username
+			local WarnButton = template2.BanButton
+			local displayname = usernameText.Parent.DisplayName
+			image2.Image = photo
+			
+			if player.DisplayName then
+				displayname.Text = player.DisplayName
+				usernameText.Text = "@"..player.Name
+			else
+				displayname.Text = player.Name
+				usernameText.Text = "@"..player.Name
+			end
+			
+			WarnButton.Activated:Connect(function()
+				WarnPlayer(player)
+			end)
 			
 			template.Name = player.Name
 			template.Visible = true
@@ -467,8 +520,8 @@ local function WSYEB_fake_script() -- BanMenu.BanSystem
 		UpdateBanList(playersInGame, false)
 	end
 end
-coroutine.wrap(WSYEB_fake_script)()
-local function QIEL_fake_script() -- TextButton.LocalScript 
+coroutine.wrap(EFJAUIM_fake_script)()
+local function DLMLEO_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	
@@ -486,4 +539,4 @@ local function QIEL_fake_script() -- TextButton.LocalScript
 		end
 	end)
 end
-coroutine.wrap(QIEL_fake_script)()
+coroutine.wrap(DLMLEO_fake_script)()
